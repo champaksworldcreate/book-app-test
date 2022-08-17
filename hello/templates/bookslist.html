@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+</head>
+<body>
+Books
+<br>
+
+
+<form action="" method="get">
+    <input type="text" name="searchValue" value="{{searchValue}}"><br>
+    <input type="submit"name="" value="submit">
+</form>
+<table border="5">
+    <tr>
+        <th>kind</th>
+        <th>Book Image</th>
+        <th>Title</th>
+        <th>Publisher</th>
+        <th>Price</th>
+        <th>Buy</th>
+    </tr>
+    {% for book in books%}
+     <tr>
+        <td>{{book.kind}}</td>
+        <td><img src="{{book.volumeInfo.imageLinks.thumbnail}}"/></td>
+        <td>{{book.volumeInfo.title}}</td>
+        <td>{{book.volumeInfo.publisher}}</td>
+        <td>{{book.saleInfo.listPrice.amount}}<br>{{book.saleInfo.listPrice.currencyCode}}</td>
+        <td><a href="{{book.saleInfo.buyLink}}">buy</a></td>
+    </tr>
+    {% endfor %}
+
+
+</table>
+</body>
+</html>
